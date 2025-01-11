@@ -1,8 +1,8 @@
-import { Alert, Button, FileInput, Select, TextInput } from "flowbite-react";
+import { Button, FileInput, Select, TextInput } from "flowbite-react";
 import React, { useState } from "react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { CircularProgressbar } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import toast from "react-hot-toast";
@@ -22,6 +22,7 @@ const BlogPost = () => {
     navigate("/blogs");
   };
 
+  // Function to handle upload a image for the blog using cloudinary
   const handleUploadImage = async () => {
     if (!file) {
       toast.error("Please Select a file to upload");
@@ -85,6 +86,7 @@ const BlogPost = () => {
     }
   };
 
+  // Function to handle the blog to post.
   const handleSubmit = async (e) => {
     e.preventDefault();
 

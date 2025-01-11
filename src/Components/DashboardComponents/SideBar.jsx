@@ -56,7 +56,7 @@ const SideBar = ({ isOpen, handleClose }) => {
               </Link>
               <Link to="/dashboard?tab=createpost">
                 <Sidebar.Item
-                  active={tab === "create-post"}
+                  active={tab === "createpost"}
                   icon={BsPlusCircle}
                   className="cursor-pointer"
                   as="div"

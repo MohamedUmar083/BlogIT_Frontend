@@ -275,25 +275,6 @@ const Profile = () => {
         </span>
       </div>
 
-      {/* {updateUserSuccess && (
-        <Alert color="success" icon={HiInformationCircle} className="mt-5">
-          <span className="font-medium me-2">😎Yaaa!</span>
-          {updateUserSuccess}
-        </Alert>
-      )}
-      {updateUserError && (
-        <Alert color="failure" icon={HiInformationCircle} className="mt-5">
-          <span className="font-medium me-2">🥴OOPS!</span>
-          {updateUserError}
-        </Alert>
-      )}
-      {error && (
-        <Alert color="failure" icon={HiInformationCircle} className="mt-5">
-          <span className="font-medium me-2">🥴OOPS!</span>
-          {error}
-        </Alert>
-      )} */}
-
       {/* Modals  */}
 
       <Modal

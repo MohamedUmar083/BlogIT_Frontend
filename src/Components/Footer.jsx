@@ -1,13 +1,6 @@
 import { Footer } from "flowbite-react";
 import React from "react";
-import {
-  BsFacebook,
-  BsFileEarmarkPerson,
-  BsGithub,
-  BsInstagram,
-  BsLinkedin,
-  BsTwitter,
-} from "react-icons/bs";
+import { BsFileEarmarkPerson, BsGithub, BsLinkedin } from "react-icons/bs";
 const FooterCom = () => {
   return (
     <Footer
@@ -26,14 +19,28 @@ const FooterCom = () => {
           </div>
           <div className="grid grid-cols-2 gap-8 sm:mt-4 sm:grid-cols-3 sm:gap-6">
             <div>
-              <Footer.Title title="Technology" />
+              <Footer.Title title="Frontend Technology" />
               <Footer.LinkGroup col>
+                <Footer.Link href="#">React.js</Footer.Link>
+                <Footer.Link href="#">Redux</Footer.Link>
                 <Footer.Link href="#">Flowbite</Footer.Link>
                 <Footer.Link href="#">Tailwind CSS</Footer.Link>
+                <Footer.Link href="#">Firebase</Footer.Link>
+                <Footer.Link href="#">Cloudinary</Footer.Link>
               </Footer.LinkGroup>
             </div>
             <div>
-              <Footer.Title title="Follow us" />
+              <Footer.Title title="Backend Technology" />
+              <Footer.LinkGroup col>
+                <Footer.Link href="#">MongoDB</Footer.Link>
+                <Footer.Link href="#">Express.js</Footer.Link>
+                <Footer.Link href="#">Node.js</Footer.Link>
+                <Footer.Link href="#">JWT</Footer.Link>
+                <Footer.Link href="#">Javascript</Footer.Link>
+              </Footer.LinkGroup>
+            </div>
+            <div>
+              <Footer.Title title="Follow Me on" />
               <Footer.LinkGroup col>
                 <Footer.Link href="https://github.com/MohamedUmar083">
                   Github
@@ -46,13 +53,13 @@ const FooterCom = () => {
                 </Footer.Link>
               </Footer.LinkGroup>
             </div>
-            <div>
+            {/* <div>
               <Footer.Title title="Legal" />
               <Footer.LinkGroup col>
                 <Footer.Link href="#">Privacy Policy</Footer.Link>
                 <Footer.Link href="#">Terms &amp; Conditions</Footer.Link>
               </Footer.LinkGroup>
-            </div>
+            </div> */}
           </div>
         </div>
         <Footer.Divider />

@@ -1,12 +1,11 @@
 import { Avatar, Button, Dropdown, Navbar } from "flowbite-react";
-import React, { useState } from "react";
+import React from "react";
 import { BsFillMoonFill, BsFillSunFill } from "react-icons/bs";
 import toast from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
 import { toggleTheme } from "../Redux/Slice/themeSlice";
 import { signOut } from "../Redux/Slice/userSlice";
-// import ProfileModals from "./Modals/ProfileModals";
 
 const Header = () => {
   const path = useLocation().pathname;
@@ -83,7 +82,7 @@ const Header = () => {
 
           <Navbar.Toggle />
         </div>
-        {/* <ProfileModals openModal={openModal} setOpenModal={handleClose} /> */}
+
         <Navbar.Collapse>
           <Navbar.Link active={path === "/"} as={"div"}>
             <Link to="/">Home</Link>
