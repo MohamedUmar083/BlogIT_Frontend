@@ -42,7 +42,7 @@ const Blogs = () => {
   const fetchData = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:8383/api/post/getmypost/${currentUser.result._id}`,
+        `https://blogit-backend-yhnk.onrender.com/api/post/getmypost/${currentUser.result._id}`,
         { headers: { token: localStorage.getItem("Token") } }
       );
 
@@ -71,7 +71,7 @@ const Blogs = () => {
     }
     try {
       const response = await axios.put(
-        `http://localhost:8383/api/post/updatepost/${editData._id}`,
+        `https://blogit-backend-yhnk.onrender.com/api/post/updatepost/${editData._id}`,
         formData,
         { headers: { token: localStorage.getItem("Token") } }
       );
@@ -144,7 +144,7 @@ const Blogs = () => {
     //console.log(postID);
     try {
       const response = await axios.delete(
-        `http://localhost:8383/api/post/deletepost/${postID}`,
+        `https://blogit-backend-yhnk.onrender.com/api/post/deletepost/${postID}`,
         { headers: { token: localStorage.getItem("Token") } }
       );
 

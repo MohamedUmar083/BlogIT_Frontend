@@ -26,7 +26,7 @@ const Oauth = () => {
         avatar: result.user.photoURL,
       };
       const response = await axios.post(
-        "http://localhost:8383/api/auth/google",
+        "https://blogit-backend-yhnk.onrender.com/api/auth/google",
         userData
       );
 

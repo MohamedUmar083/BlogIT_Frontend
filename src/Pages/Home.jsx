@@ -13,7 +13,7 @@ const Home = () => {
   const fetchData = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:8383/api/post/getallpost"
+        "https://blogit-backend-yhnk.onrender.com/api/post/getallpost"
       );
       if (response.status === 200) {
         setBlogs(response.data);

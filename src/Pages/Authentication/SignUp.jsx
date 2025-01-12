@@ -25,7 +25,10 @@ const SignUp = () => {
       setLoading(true);
 
       await axios
-        .post("http://localhost:8383/api/auth/register", formData)
+        .post(
+          "https://blogit-backend-yhnk.onrender.com/api/auth/register",
+          formData
+        )
         .then((res) => {
           if (res.data.success === false) {
             return toast.error(res.data.message);

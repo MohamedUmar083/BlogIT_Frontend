@@ -132,7 +132,7 @@ const Profile = () => {
     dispatch(deleteStart());
     try {
       const response = await axios.delete(
-        `http://localhost:8383/api/user/delete/${currentUser.result._id}`,
+        `https://blogit-backend-yhnk.onrender.com/api/user/delete/${currentUser.result._id}`,
         { headers: { token: localStorage.getItem("Token") } }
       );
       if (response.status === 200) {
@@ -166,7 +166,7 @@ const Profile = () => {
     try {
       dispatch(update());
       const response = await axios.put(
-        `http://localhost:8383/api/user/update/${currentUser.result._id}`,
+        `https://blogit-backend-yhnk.onrender.com/api/user/update/${currentUser.result._id}`,
         formData,
         { headers: { token: localStorage.getItem("Token") } }
       );

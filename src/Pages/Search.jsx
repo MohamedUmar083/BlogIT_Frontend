@@ -23,7 +23,7 @@ const Search = () => {
     }
     try {
       const response = await axios.get(
-        `http://localhost:8383/api/post/searchpost?search=${value}`
+        `https://blogit-backend-yhnk.onrender.com/api/post/searchpost?search=${value}`
       );
       if (response.status === 200) {
         setBlogs(response.data);

@@ -14,7 +14,7 @@ const AllUser = () => {
   const fetchData = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:8383/api/admin/getalluser",
+        "https://blogit-backend-yhnk.onrender.com/api/admin/getalluser",
         { headers: { token: localStorage.getItem("Token") } }
       );
       setUsers(response.data);
@@ -27,7 +27,7 @@ const AllUser = () => {
     const userid = id;
     try {
       const response = await axios.delete(
-        `http://localhost:8383/api/admin/deleteuser/${userid}`,
+        `https://blogit-backend-yhnk.onrender.com/api/admin/deleteuser/${userid}`,
         { headers: { token: localStorage.getItem("Token") } }
       );
 

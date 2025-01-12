@@ -94,7 +94,7 @@ const BlogPost = () => {
       //to convert html to content
       //const strippedContent = formData.content.replace(/<[^>]+>/g, "");
       const response = await axios.post(
-        `http://localhost:8383/api/post/create/${currentUser.result._id}`,
+        `https://blogit-backend-yhnk.onrender.com/api/post/create/${currentUser.result._id}`,
         formData,
         { headers: { token: localStorage.getItem("Token") } }
       );

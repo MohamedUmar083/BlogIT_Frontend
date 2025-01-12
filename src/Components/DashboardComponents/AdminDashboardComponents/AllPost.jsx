@@ -13,7 +13,7 @@ const AllPost = () => {
   const fetchData = async () => {
     try {
       const response = await axios(
-        "http://localhost:8383/api/admin/getallpost",
+        "https://blogit-backend-yhnk.onrender.com/api/admin/getallpost",
         { headers: { token: localStorage.getItem("Token") } }
       );
       if (response.status === 200) {
@@ -29,7 +29,7 @@ const AllPost = () => {
     const postid = id;
     try {
       const response = await axios.delete(
-        `http://localhost:8383/api/admin/deletepost/${postid}`,
+        `https://blogit-backend-yhnk.onrender.com/api/admin/deletepost/${postid}`,
         { headers: { token: localStorage.getItem("Token") } }
       );
       if (response.status === 200) {
