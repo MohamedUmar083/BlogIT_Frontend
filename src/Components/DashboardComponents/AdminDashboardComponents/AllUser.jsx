@@ -9,7 +9,7 @@ const AllUser = () => {
 
   useEffect(() => {
     fetchData();
-  }, [deleted]);
+  }, [deleted, users]);
 
   const fetchData = async () => {
     try {
