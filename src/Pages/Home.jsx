@@ -2,33 +2,39 @@ import React, { useEffect, useState } from "react";
 import { Avatar, Card } from "flowbite-react";
 import DOMPurify from "dompurify";
 import axios from "axios";
-
 import { format } from "date-fns";
 import toast from "react-hot-toast";
+import CardSkeleton from "../Components/CardSkeleton";
 const Home = () => {
   const [blogs, setBlogs] = useState([]);
+  const [loading, setLoading] = useState(false);
   useEffect(() => {
     fetchData();
   }, []);
   const fetchData = async () => {
     try {
+      setLoading(true);
       const response = await axios.get(
         "https://blogit-backend-yhnk.onrender.com/api/post/getallpost"
       );
       if (response.status === 200) {
         setBlogs(response.data);
+        setLoading(false);
         //toast.success("Fetched All Post");
         //console.log(response.data);
       }
     } catch (error) {
       toast.error("Failed to fetch all post");
+      setLoading(false);
       console.log(error);
     }
   };
 
   return (
     <div className="min-h-96">
-      {blogs.length === 0 ? (
+      {loading ? (
+        <CardSkeleton />
+      ) : blogs.length === 0 ? (
         <div className="pt-20 text-center">
           <h2 className="sm:text-4xl text-xl font-bold text-gray-700 dark:text-gray-200">
             There are no posts to display.
@@ -98,8 +104,8 @@ const Home = () => {
                         </span>
                       </div>
                       {/* <p className="mt-2 text-sm text-gray-700 dark:text-gray-400 flex-grow">
-                    {ele.content}
-                  </p> */}
+                  {ele.content}
+                </p> */}
                       <div
                         className="mt-2 text-sm text-gray-700 dark:text-gray-400 flex-grow"
                         dangerouslySetInnerHTML={{ __html: sanitizedContent }}

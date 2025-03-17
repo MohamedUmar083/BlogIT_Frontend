@@ -5,10 +5,12 @@ import { FiSearch } from "react-icons/fi";
 import DOMPurify from "dompurify";
 import { format } from "date-fns";
 import toast from "react-hot-toast";
+import CardSkeleton from "../Components/CardSkeleton";
 
 const Search = () => {
   const [blogs, setBlogs] = useState([]);
   const [search, setSearch] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {}, [search]);
 
@@ -22,21 +24,25 @@ const Search = () => {
       return;
     }
     try {
+      setLoading(true);
       const response = await axios.get(
         `https://blogit-backend-yhnk.onrender.com/api/post/searchpost?search=${value}`
       );
       if (response.status === 200) {
         setBlogs(response.data);
+        setLoading(false);
         //console.log(response.data);
         setSearch(true);
       }
       if (response.data.length === 0) {
         setBlogs([]);
         setSearch(false);
+        setLoading(false);
       }
     } catch (error) {
       setBlogs([]);
       setSearch(false);
+      setLoading(false);
       toast.error(error.response?.data.message || error.message);
     }
   };
@@ -55,7 +61,9 @@ const Search = () => {
           </div>
         </div>
       </Navbar>
-      {blogs.length === 0 ? (
+      {loading ? (
+        <CardSkeleton />
+      ) : blogs.length === 0 ? (
         <div className="pt-20 text-center">
           <h2 className="sm:text-4xl text-xl font-bold text-gray-700 dark:text-gray-200">
             {search

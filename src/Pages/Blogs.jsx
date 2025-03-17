@@ -17,9 +17,11 @@ import DOMPurify from "dompurify";
 import { HiOutlineExclamationCircle } from "react-icons/hi";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
+import CardSkeleton from "../Components/CardSkeleton";
 
 const Blogs = () => {
   const { currentUser } = useSelector((state) => state.user);
+  const [loading, setLoading] = useState(false);
   const [blogs, setBlogs] = useState([]);
   const [openModal, setOpenModal] = useState(null);
   const [openEditModal, setOpenEditModal] = useState(false);
@@ -41,14 +43,22 @@ const Blogs = () => {
   }, [deleted, edited]);
   const fetchData = async () => {
     try {
+      setLoading(true);
       const response = await axios.get(
         `https://blogit-backend-yhnk.onrender.com/api/post/getmypost/${currentUser.result._id}`,
         { headers: { token: localStorage.getItem("Token") } }
       );
 
-      setBlogs(response.data.result);
+      if (response.status === 200) {
+        setBlogs(response.data.result);
+        setLoading(false);
+        //toast.success("Fetched All Post");
+        //console.log(response.data);
+      }
+
       //console.log(response.data.result);
     } catch (error) {
+      setLoading(false);
       toast.error(error.response?.data.message || error.message);
       //console.log(error.response.data.message);
     }
@@ -162,7 +172,10 @@ const Blogs = () => {
       <h2 className="pt-10 text-center sm:text-4xl text-xl font-bold text-gray-700 dark:text-gray-200">
         My Blogs
       </h2>
-      {blogs.length === 0 ? (
+
+      {loading ? (
+        <CardSkeleton />
+      ) : blogs.length === 0 ? (
         <div className="pt-20 text-center">
           <h2 className="sm:text-4xl text-xl font-bold text-gray-700 dark:text-gray-200">
             There are no posts to display.
